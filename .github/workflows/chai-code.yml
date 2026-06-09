@@ -43,8 +43,8 @@ jobs:
             # again pull the fresh docker image
             sudo docker pull happysingh2005/chaicode-node
 
-            # run docker container -d -p 8000:8000 happysingh2005/chaicode-node
-            sudo docker run -d --name chaicode-node --restart unless-stopped -p 8000:8000 happysingh2005/chaicode-node
+            # run docker container -d -p 80:8000 happysingh2005/chaicode-node
+            sudo docker run -d --name chaicode-node --restart unless-stopped -p 80:8000 happysingh2005/chaicode-node
 
             # clean up old/unused image
             sudo docker image prune -f
