@@ -9,7 +9,7 @@ services:
   caddy:
     image: caddy:latest
     ports:
-      - '80:80'
+      - "80:80"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
     networks:
@@ -17,4 +17,4 @@ services:
 
 networks:
   chaicode-internal:
-    driver: bridge
+  driver: bridge
