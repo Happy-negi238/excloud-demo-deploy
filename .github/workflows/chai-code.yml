@@ -37,14 +37,17 @@ jobs:
           username: ubuntu
           key: ${{ secrets.PRIVATE_SSH_KEY }}
           script: |
-            # kill the existing docker continer
-            sudo docker rm -f chaicode-node || true
+            # cd /home/ubuntu/excloud-demo-deploy
+            cd /home/ubuntu/excloud-demo-deploy
 
-            # again pull the fresh docker image
-            sudo docker pull happysingh2005/chaicode-node
+            # git pull
+            git pull origin main
 
-            # run docker container -d -p 80:8000 happysingh2005/chaicode-node
-            sudo docker run -d --name chaicode-node --restart unless-stopped -p 80:8000 happysingh2005/chaicode-node
+            # make sure to pull a fresh copy of happysingh2005/chaicode-node
+            sudo docker compose pull
 
-            # clean up old/unused image
+            # docker compose up -d
+            sudo docker compose up -d
+
+            # clean up old/unused images
             sudo docker image prune -f
