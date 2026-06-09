@@ -1,4 +1,6 @@
-:80{
+ex.210.79.129.226{
+    tls 210.79.129.226
+    
     handle{
         reverse_proxy nodejs-server:8000{
             header_up Host {host}
